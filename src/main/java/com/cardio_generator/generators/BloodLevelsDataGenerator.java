@@ -4,12 +4,25 @@ import java.util.Random;
 
 import com.cardio_generator.outputs.OutputStrategy;
 
+/**
+ * This {@code BloodLevelsDataGenerator} class generates the blood data for patients.
+ * <p>
+ *     It creates three main blood metrics (cholesterol level,
+ *     white cells count and red cells count)
+ * </p>
+ */
+
 public class BloodLevelsDataGenerator implements PatientDataGenerator {
     private static final Random random = new Random();
     private final double[] baselineCholesterol;
     private final double[] baselineWhiteCells;
     private final double[] baselineRedCells;
 
+    /**
+     * Constructor initializes the blood metric based on the number of patient
+     * and creates specific values for the patients.
+     * @param patientCount The number fo patients
+     */
     public BloodLevelsDataGenerator(int patientCount) {
         // Initialize arrays to store baseline values for each patient
         baselineCholesterol = new double[patientCount + 1];
@@ -23,6 +36,13 @@ public class BloodLevelsDataGenerator implements PatientDataGenerator {
             baselineRedCells[i] = 4.5 + random.nextDouble() * 1.5; // Initial random baseline
         }
     }
+
+    /**
+     * Generates for each patient current blood levels modifying
+     * the initial value.
+     * @param patientId The specific patient
+     * @param outputStrategy It handles the output the measurements
+     */
 
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {

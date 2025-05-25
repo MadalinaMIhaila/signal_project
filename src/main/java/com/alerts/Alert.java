@@ -1,6 +1,10 @@
 package com.alerts;
 
-// Represents an alert
+/**
+ * Represents an alert based on the patient's vital conditions.
+ * It includes information about the patient, the condition
+ * and the time the alert was triggered.
+ */
 public class Alert {
     private String patientId;
     private String condition;
